@@ -69,6 +69,12 @@ def generate_pdf(matric_number, fullname, dept, result, qr_code):
     return pdf.output(dest='S').encode('latin-1')
 
 def main():
+    st.set_page_config(page_title= "BellsTech", 
+                       page_icon="logo.jpeg", 
+                       layout="centered", 
+                       initial_sidebar_state="auto", 
+                       menu_items=None)
+
     st.sidebar.title("INSTRUCTION")
     st.sidebar.markdown("""
         **Welcome to the BellsTech Clinic App!**
