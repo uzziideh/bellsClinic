@@ -42,7 +42,7 @@ def generate_pdf(matric_number, fullname, dept, result, qr_code):
     # Content
     pdf.set_font("Arial", size=12)
     details = [
-        f"Matric Number: {matric_number}",
+        f"Matric Number/hospital number: {matric_number}",
         f"Full Name: {fullname}",
         f"Department: {dept}",
         f"Substance abuse screening': {result}"
@@ -83,7 +83,7 @@ def main():
 
         **To use this app:**
 
-        1. Enter your mat number.
+        1. Enter your mat number or hospital number (100 level only).
         2. Click the 'Generate Report' button.
         3. Click the 'Download Report' button.
 
@@ -130,7 +130,7 @@ def main():
         # Display student details
         st.success("Report generated successfully!")
         st.write("### Student Details")
-        st.write(f"**Matric Number:** {matric_number}")
+        st.write(f"**Matric Number/ hospital number:** {matric_number}")
         st.write(f"**Full Name:** {fullname}")
         st.write(f"**Department:** {dept}")
         st.write(f"**Substance abuse screening:** {result}")
