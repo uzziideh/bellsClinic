@@ -127,7 +127,7 @@ def main():
         st.write(f"**Matric Number:** {matric_number}")
         st.write(f"**Full Name:** {fullname}")
         st.write(f"**Department:** {dept}")
-        st.write(f"**Substance abuse screening':** {result}")
+        st.write(f"**Substance abuse screening:** {result}")
         
         # Generate QR code with student information
         qr_code_data = f"Matric Number: {matric_number}\nFull Name: {fullname}\nDepartment: {dept}\nResult: {result}"
