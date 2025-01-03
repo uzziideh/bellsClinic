@@ -45,7 +45,7 @@ def generate_pdf(matric_number, fullname, dept, result, qr_code):
         f"Matric Number/Hospital Number: {matric_number}",
         f"Full Name: {fullname}",
         f"Department: {dept}",
-        f"Substance abuse screening': {result}"
+        f"Substance abuse screening: {result}"
     ]
     
     for detail in details:
