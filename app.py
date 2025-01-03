@@ -1,3 +1,4 @@
+
 import streamlit as st
 from fpdf import FPDF
 import pandas as pd
@@ -44,7 +45,7 @@ def generate_pdf(matric_number, fullname, dept, result, qr_code):
         f"Matric Number: {matric_number}",
         f"Full Name: {fullname}",
         f"Department: {dept}",
-        f"Substance abuse screening: {result}"
+        f"Substance abuse screening': {result}"
     ]
     
     for detail in details:
@@ -67,7 +68,8 @@ def generate_pdf(matric_number, fullname, dept, result, qr_code):
     
     return pdf.output(dest='S').encode('latin-1')
 
-def main(): 
+def main():
+    st.sidebar.title("INSTRUCTION")
     st.sidebar.markdown("""
         **Welcome to the BellsTech Clinic App!**
 
@@ -93,15 +95,13 @@ def main():
         st.image("logo.jpeg")
     with col3:
         st.write(' ')
-
     st.markdown("""
         <h3 style='text-align: center;'>Bells University of Technology, Ota </h3>
         <h4 style='text-align: center;'>Substance Abuse Screening Report Generator</h4>
     """, unsafe_allow_html=True) 
     st.markdown('---')
- 
-    matric_number = st.text_input("Enter your Mat Number")
-
+  
+    matric_number =st.text_input("Enter your Mat Number")
     if st.button("Generate Report"):
         if not matric_number:
             st.error("Please select a matric number.")
@@ -119,14 +119,15 @@ def main():
         fullname = student["Fullname"]
         dept = student["Dept"]
         result = student["RESULT"]
-
-        st.success("Report generated successfully!")
+        
+        st.markdown("---")
         # Display student details
+        st.success("Report generated successfully!")
         st.write("### Student Details")
         st.write(f"**Matric Number:** {matric_number}")
         st.write(f"**Full Name:** {fullname}")
         st.write(f"**Department:** {dept}")
-        st.write(f"**Substance abuse screening:** {result}")
+        st.write(f"**Substance abuse screening':** {result}")
         
         # Generate QR code with student information
         qr_code_data = f"Matric Number: {matric_number}\nFull Name: {fullname}\nDepartment: {dept}\nResult: {result}"
@@ -134,16 +135,13 @@ def main():
         
         # Generate and download the report
         pdf_data = generate_pdf(matric_number, fullname, dept, result, qr_code)
-        
-        st.markdown('---')
+        st.markdown("---")
         st.download_button(
             label="Download Report",
             data=pdf_data,
             file_name=f"{matric_number}_report.pdf",
             mime="application/pdf"
         )
-        st.markdown('---')
-
+        st.markdown("---")
 if __name__ == "__main__":
     main()
-
