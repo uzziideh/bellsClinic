@@ -107,7 +107,7 @@ def main():
     """, unsafe_allow_html=True) 
     st.markdown('---')
   
-    matric_number =st.text_input("Enter your Mat Number")
+    matric_number =st.text_input("Enter your Mat Number/Hospital Number")
     if st.button("Generate Report"):
         if not matric_number:
             st.error("Please select a matric number.")
