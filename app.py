@@ -83,7 +83,7 @@ def main():
 
         **To use this app:**
 
-        1. Enter your mat number or hospital number (100 level only).
+        1. Enter your mat number or hospital number (Newly admitted students only).
         2. Click the 'Generate Report' button.
         3. Click the 'Download Report' button.
 
